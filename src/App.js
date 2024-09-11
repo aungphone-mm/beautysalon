@@ -119,10 +119,17 @@ const App = () => {
         await addDoc(collection(db, 'services'), newService);
         setNewService({ name: '', duration: '', price: '' });
         fetchServices(); // Refresh services list
+        alert('Service added successfully!');
       } catch (error) {
         console.error("Error adding service: ", error);
-        alert('An error occurred while adding the service. Please try again.');
+        if (error.code === 'permission-denied') {
+          alert('Permission denied. Please make sure you are logged in and have the necessary permissions.');
+        } else {
+          alert('An error occurred while adding the service. Please try again.');
+        }
       }
+    } else {
+      alert('Please fill in all fields for the new service.');
     }
   };
 

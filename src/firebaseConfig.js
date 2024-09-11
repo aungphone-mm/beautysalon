@@ -1,7 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 
-const firebaseConfig = {
+export const firebaseConfig = {
   apiKey: "AIzaSyDqM6Ov-rroihEaZfhN20h40C_5b51GG8U",
   authDomain: "pandora-564d6.firebaseapp.com",
   projectId: "pandora-564d6",
@@ -15,4 +15,4 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 
-export { app, analytics, firebaseConfig };
+export { app, analytics };
